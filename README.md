@@ -1,5 +1,8 @@
 # bbbundle
 
+## install
+`npm install @bbbottle/bbbundle`
+
 ## usage
 `bbbundle [command] [options]`
 
