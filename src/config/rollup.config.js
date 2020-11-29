@@ -4,6 +4,8 @@ const resolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
 const postcss = require('rollup-plugin-postcss');
 const peerDepsExternal = require('rollup-plugin-peer-deps-external');
+const json = require('@rollup/plugin-json');
+
 const svgr = require('@svgr/rollup').default;
 
 const paths = require('../paths');
@@ -43,6 +45,7 @@ const createRollupConfig = (opts = {}) => {
       }),
       resolve(),
       svgr(),
+      json(),
       babel({
         exclude: 'node_modules/**',
         presets: ['@babel/preset-env', '@babel/preset-react'],
