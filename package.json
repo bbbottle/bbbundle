@@ -1,6 +1,6 @@
 {
   "name": "@bbbottle/bbbundle",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "dist/index.js",
   "publishConfig": {
@@ -13,7 +13,7 @@
   "repository": "https://github.com/bbbottle/bbbundle.git",
   "author": "bbbottle <z@zjh.im>",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "@babel/core": "^7.12.3",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/plugin-proposal-export-default-from": "^7.12.1",
@@ -24,9 +24,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-postcss": "^3.1.8"
-  },
-  "dependencies": {
+    "rollup-plugin-postcss": "^3.1.8",
     "commander": "^6.2.0",
     "rollup": "^2.33.3"
   }
