@@ -5,6 +5,7 @@ const commonjs = require('rollup-plugin-commonjs');
 const postcss = require('rollup-plugin-postcss');
 const peerDepsExternal = require('rollup-plugin-peer-deps-external');
 const json = require('@rollup/plugin-json');
+const { terser } = require('rollup-plugin-terser');
 
 const svgr = require('@svgr/rollup').default;
 
@@ -17,14 +18,15 @@ const createRollupConfig = (opts = {}) => {
     outputPath = paths.distPath,
     outputName = 'index.js',
     outputFormat = 'es',
-    packageJsonPath = paths.pkgJSONPath
+    packageJsonPath = paths.pkgJSONPath,
+    production = true,
   } = opts;
 
   return {
     input,
     output: {
       name: outputName,
-      sourcemap: true,
+      sourcemap: !production,
       file: path.join(outputPath, outputName),
       format: outputFormat,
       globals: { react: 'React' },
@@ -55,6 +57,7 @@ const createRollupConfig = (opts = {}) => {
         ]
       }),
       commonjs(),
+      terser(),
     ],
     external: [
       'react',
