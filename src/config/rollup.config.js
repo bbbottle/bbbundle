@@ -61,7 +61,11 @@ const createRollupConfig = (opts = {}) => {
     ],
     external: [
       'react',
-      'react-dom'
+      'react-dom',
+      'rxjs',
+      'immer',
+      'classnames',
+      'prop-types'
     ],
   };
 }
