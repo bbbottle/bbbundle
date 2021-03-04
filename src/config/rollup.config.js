@@ -63,6 +63,7 @@ const createRollupConfig = (opts = {}) => {
       'react',
       'react-dom',
       'rxjs',
+      'rxjs/operators',
       'immer',
       'classnames',
       'prop-types'
