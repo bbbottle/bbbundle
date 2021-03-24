@@ -1,5 +1,5 @@
 const path = require("path");
-const babel = require("rollup-plugin-babel");
+const { babel } = require("@rollup/plugin-babel");
 const resolve = require("rollup-plugin-node-resolve");
 const commonjs = require("rollup-plugin-commonjs");
 const postcss = require("rollup-plugin-postcss");
@@ -53,16 +53,9 @@ const createRollupConfig = (opts = {}) => {
         plugins: [
           "@babel/plugin-syntax-export-default-from",
           "@babel/plugin-proposal-class-properties",
-          [
-            "@babel/plugin-transform-runtime",
-            {
-              absoluteRuntime: false,
-              corejs: false,
-              helpers: true,
-              regenerator: true,
-            },
-          ],
+          "@babel/plugin-transform-runtime"
         ],
+        babelHelpers: 'runtime',
       }),
       commonjs(),
       terser(),
