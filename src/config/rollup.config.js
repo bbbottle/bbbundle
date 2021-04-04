@@ -48,6 +48,7 @@ const createRollupConfig = (opts = {}) => {
       svgr(),
       json(),
       babel({
+        runtimeHelpers: true,
         exclude: "node_modules/**",
         presets: ["@babel/preset-env", "@babel/preset-react"],
         plugins: [
@@ -59,7 +60,6 @@ const createRollupConfig = (opts = {}) => {
               absoluteRuntime: false,
               corejs: false,
               helpers: true,
-              runtimeHelpers: true,
               regenerator: true,
             },
           ],
