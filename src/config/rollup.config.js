@@ -26,7 +26,8 @@ const createRollupConfig = (opts = {}) => {
     output: {
       name: outputName,
       sourcemap: !production,
-      file: path.join(outputPath, outputName),
+      // file: path.join(outputPath, outputName),
+      dir: outputPath,
       format: outputFormat,
       globals: { react: "React" },
     },
