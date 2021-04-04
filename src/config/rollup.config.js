@@ -1,5 +1,5 @@
 const path = require("path");
-const babel = require("@rollup/plugin-babel");
+const { babel } = require("@rollup/plugin-babel");
 const resolve = require("rollup-plugin-node-resolve");
 const commonjs = require("rollup-plugin-commonjs");
 const postcss = require("rollup-plugin-postcss");
@@ -73,6 +73,7 @@ const createRollupConfig = (opts = {}) => {
       "immer",
       "classnames",
       "prop-types",
+      /@babel\/runtime/,
     ],
   };
 };
