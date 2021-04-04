@@ -55,7 +55,7 @@ const createRollupConfig = (opts = {}) => {
           "@babel/plugin-syntax-export-default-from",
           "@babel/plugin-proposal-class-properties",
           [
-            "transform-runtime",
+            '"@babel/plugin-transform-runtime',
             {
               regenerator: true,
             },
