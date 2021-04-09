@@ -12,6 +12,11 @@ const startWatch = require("../actions/watch");
 
 const bundleConf = createRollupConfig();
 
+program.option(
+  "-f, --format <format>",
+  "Type of output (amd, cjs, es, iife, umd, system)"
+);
+
 program
   .version(packageJson.version)
   .arguments("[command] [options]")
@@ -21,7 +26,11 @@ program
       return;
     }
 
-    bundleWithConf(bundleConf).then(() => {
+    const { format: outputFormat } = program.opts();
+
+    bundleWithConf({
+      outputFormat,
+    }).then(() => {
       console.log(":)");
     });
   });
