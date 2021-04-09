@@ -28,9 +28,11 @@ program
 
     const { format: outputFormat } = program.opts();
 
-    bundleWithConf({
-      outputFormat,
-    }).then(() => {
+    bundleWithConf(
+      createRollupConfig({
+        outputFormat,
+      })
+    ).then(() => {
       console.log(":)");
     });
   });
