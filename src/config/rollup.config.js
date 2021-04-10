@@ -79,6 +79,7 @@ const createRollupConfig = (opts = {}) => {
   if (outputFormat !== "system") {
     retConfig.output.name = outputName;
   }
+  return retConfig;
 };
 
 module.exports = createRollupConfig;
