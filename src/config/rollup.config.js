@@ -21,10 +21,9 @@ const createRollupConfig = (opts = {}) => {
     production = true,
   } = opts;
 
-  return {
+  const retConfig = {
     input,
     output: {
-      name: outputName,
       sourcemap: !production,
       dir: outputPath,
       format: outputFormat,
@@ -76,6 +75,10 @@ const createRollupConfig = (opts = {}) => {
       /@babel\/runtime/,
     ],
   };
+
+  if (outputFormat !== "system") {
+    retConfig.output.name = outputName;
+  }
 };
 
 module.exports = createRollupConfig;
