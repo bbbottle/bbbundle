@@ -42,8 +42,10 @@ program
     const devConf = {
       treeshake: false,
     };
+    const { format: outputFormat } = program.opts();
     const bundleConf = createRollupConfig({
       production: false,
+      outputFormat,
     });
     startWatch({
       ...bundleConf,
