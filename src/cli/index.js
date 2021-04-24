@@ -10,8 +10,6 @@ const createRollupConfig = require("../config/rollup.config");
 const bundleWithConf = require("../actions/build");
 const startWatch = require("../actions/watch");
 
-const bundleConf = createRollupConfig();
-
 program.option(
   "-f, --format <format>",
   "Type of output (amd, cjs, es, iife, umd, system)"
@@ -44,6 +42,9 @@ program
     const devConf = {
       treeshake: false,
     };
+    const bundleConf = createRollupConfig({
+      production: false,
+    });
     startWatch({
       ...bundleConf,
       ...devConf,

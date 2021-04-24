@@ -8,7 +8,7 @@ const json = require("@rollup/plugin-json");
 const { terser } = require("rollup-plugin-terser");
 
 const svgr = require("@svgr/rollup").default;
-
+const browserEnvReplacer = require("./browser_env_replace");
 const paths = require("../paths");
 
 const createRollupConfig = (opts = {}) => {
@@ -46,6 +46,7 @@ const createRollupConfig = (opts = {}) => {
       resolve(),
       svgr(),
       json(),
+      browserEnvReplacer(production),
       babel({
         babelHelpers: "runtime",
         exclude: "node_modules/**",
@@ -72,7 +73,6 @@ const createRollupConfig = (opts = {}) => {
       "immer",
       "classnames",
       "prop-types",
-      /@babel\/runtime/,
     ],
   };
 
